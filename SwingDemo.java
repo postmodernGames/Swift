@@ -7,7 +7,7 @@ import javax.swing.*;
 
 
 public class SwingDemo implements  ActionListener{
-
+    JTextField jtf;
     JLabel jlab;
 
     SwingDemo(){
@@ -15,13 +15,11 @@ public class SwingDemo implements  ActionListener{
         jfrm.getContentPane().setLayout(new FlowLayout());
         jfrm.setSize(375, 200);
         jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JButton jbtnFirst = new JButton("First");
-        JButton jbtnSecond = new JButton("Second");
 
-        jbtnFirst.addActionListener(this);
-        jbtnSecond.addActionListener(this);
-        jfrm.getContentPane().add(jbtnFirst);
-        jfrm.getContentPane().add(jbtnSecond);
+
+        jtf = new JTextField(10);
+        jtf.addActionListener(this);
+        jfrm.getContentPane().add(jtf);
 
         jlab = new JLabel("Press a button");
         jfrm.getContentPane().add(jlab);
@@ -29,10 +27,9 @@ public class SwingDemo implements  ActionListener{
     }
 
     public void actionPerformed(ActionEvent ae){
-        if(ae.getActionCommand().equals("First"))
-            jlab.setText("First button was pressed");
-        else
-            jlab.setText("Second button was pressed.");
+
+            jlab.setText("Coontent" + jtf.getText());
+
     }
 
 
