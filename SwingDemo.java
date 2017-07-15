@@ -18,24 +18,25 @@ class PaintPanel extends JPanel{
         setPreferredSize(new Dimension(w,h));
         rand = new Random();
     }
-}
+
 
 protected void paintComponent(Graphics g){
-    super.paintComponent(g);
-    int height = getHeight();
-    int width = getWidth();
-    ins = getInsets();
-    for(int i=ins.left+5; i <=width-ins.right-5; i+= 4){
-        int h = rand.nextInt(height - ins.bottom);
-        if(h <= ins.top) h = ins.top+1;
-        g.drawLine(i, height-ins.bottom, i, h);
-    }
+        super.paintComponent(g);
+        int height=getHeight();
+        int width=getWidth();
+        ins=getInsets();
+        for(int i=ins.left+5;i<=width-ins.right-5;i+=4){
+        int h=rand.nextInt(height-ins.bottom);
+        if(h<=ins.top)h=ins.top+1;
+        g.drawLine(i,height-ins.bottom,i,h);
+        }
 }
 
-public void changeBorderSize(int size){
-    setBorder(
+
+    public void changeBorderSize(int size) {
+        setBorder(
             BorderFactory.createLineBorder(Color.RED, size));
-    )
+    }
 }
 
 
